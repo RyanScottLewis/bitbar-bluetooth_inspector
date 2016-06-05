@@ -120,10 +120,6 @@ end
 Within the given value, a colon (`:`) followed by a device attribute name will be replaced by that devices attribute
 value. As of now, these attributes are `name`, `shortname`, and `battery`.
 
-```rb
-BluetoothInspector.run
-```
-
 ## Issues
 
 If an exception is reported from the plugin, please open an issue if one is not already opened for
