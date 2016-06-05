@@ -5,7 +5,7 @@ the `system_profiler` binary.
 
 ## Screenshot
 
-![Screenshot]()
+![Screenshot](https://raw.githubusercontent.com/RyanScottLewis/bitbar-bluetooth_inspector/master/bitbar-bluetooth_inspector.png)
 
 ## Usage
 

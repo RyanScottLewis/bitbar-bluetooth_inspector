@@ -1,9 +1,10 @@
 #!/usr/bin/env ruby
 # <bitbar.title>Bluetooth Inspector</bitbar.title>
-# <bitbar.version>0.1.0</bitbar.version>
+# <bitbar.version>0.1.1</bitbar.version>
 # <bitbar.author>Ryan Scott Lewis</bitbar.author>
 # <bitbar.author.github>RyanScottLewis</bitbar.author.github>
 # <bitbar.desc>Show bluetooth information for all connected bluetooth devices using the `system_profiler` binary.</bitbar.desc>
+# <bitbar.image>https://raw.githubusercontent.com/RyanScottLewis/bitbar-bluetooth_inspector/master/bitbar-bluetooth_inspector.png</bitbar.image>
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
 # -= Note -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
