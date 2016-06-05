@@ -42,13 +42,6 @@ module BluetoothInspector
       get_or_set_attribute(__method__, arguments)
     end
 
-    # Get/set the color of the device.
-    #
-    # @return [nil, String]
-    def shortname(*arguments)
-      get_or_set_attribute(__method__, arguments)
-    end
-
     # Get/set whether the device is shown within the bar.
     #
     # @return [Boolean]
