@@ -5,12 +5,10 @@
 # <bitbar.author.github>RyanScottLewis</bitbar.author.github>
 # <bitbar.desc>Show bluetooth information for all connected bluetooth devices using the `system_profiler` binary.</bitbar.desc>
 # <bitbar.image>https://raw.githubusercontent.com/RyanScottLewis/bitbar-bluetooth_inspector/master/bitbar-bluetooth_inspector.png</bitbar.image>
+# <bitbar.dependencies>ruby</bitbar.dependencies>
+# <bitbar.abouturl>https://github.com/RyanScottLewis/bitbar-bluetooth_inspector</bitbar.abouturl>
 
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
-# -= Note -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
-
-# See the bottom of this file for configuration documentation.
+# NOTE: Configuration is at the BOTTOM of this file!
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
 # -= Code -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
@@ -22,119 +20,6 @@
 # -= Configuration =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
 
-# Within this `BluetoothInspector.run do; ...; end` block is where you can configure this plugin.
-# This configuration block is run in between collecting the devices and formatting for output before printing to output.
-#
-# # Devices
-#
-# This plugin will use the `system_profiler` system command to retrieve information on your connect bluetooth devices.
-#
-# Each device will have the following attributes:
-#
-# `name` (required)                The name of the device.
-# `shortname`                      An arbitrary short name to give to the device. This will return the `name` if unset.
-# `battery`                        The battery level of the device, if it has one.
-# `color`                          An arbitary bitbar compatible color.
-# `bar_item` (default: `true`)     Whether this device will be shown in the bar.
-# `menu_item` (default: `true`)    Whether this device will be shown in the menu.
-#
-# # Finding Devices
-#
-# To retrieve all devices, you can simply use the `devices` method.
-# This device list is mutable and can be modified how ever you'd like:
-#
-# ```rb
-# BluetoothInspector.run do
-#
-#   # Remove all devices without battery levels:
-#   devices.delete_if { |device| !device.battery? } # Or:
-#   devices.delete_if(&:no_battery?)
-#
-#   # Only show devices with battery levels in the bar:
-#   devices.find_all { |device| !device.battery? }.each { |device| device.bar_item = false } # Or:
-#   devices.find_all(&:no_battery?).each { |device| device.bar_item = false }
-#
-#   # Color all low battery level devices red:
-#   devices.find_all { |device| device.battery? && device.battery < 20 }.each { |device| device.color = "red" }
-#
-# end
-# ```
-#
-# You can also retrieve a device by it's name or shortname attributes:
-#
-# ```rb
-# BluetoothInspector.run do
-#
-#   device("MyNamedKeyboard").color = "blue"
-#
-# end
-# ```
-#
-# You can pass a block which will be run on the found device only if it is found to avoid nil checks.
-# This block will be run with within a DeviceContext DSL:
-#
-# ```rb
-# BluetoothInspector.run do
-#
-#   device("MyNamedKeyboard") do
-#     # This block is only run if "MyNamedKeyboard" is found
-#
-#     color "blue"
-#     shortname "KB"
-#   end
-#
-# end
-# ```
-#
-# If a block argument is given, it will pass the device to it and not change the scope of the block:
-#
-# ```rb
-# BluetoothInspector.run do
-#
-#   device("MyNamedKeyboard") do |device|
-#     # This block is only run if "MyNamedKeyboard" is found
-#
-#     device.color = "blue"
-#     device.shortname = "KB"
-#   end
-#
-# end
-# ```
-#
-# # Formatting
-#
-# The format of a device in the bar or menu are set with the `bar_format` and `item_format` methods:
-#
-# BluetoothInspector.run do
-#
-#   # Defaults:
-#   bar_format ":shortname :battery%"
-#   item_format ":name"
-#
-# end
-#
-# Within the given value, a colon (`:`) followed by a device attribute name will be replaced by that devices attribute
-# value. As of now, these attributes are `name`, `shortname`, and `battery`.
+# See https://github.com/RyanScottLewis/bitbar-bluetooth_inspector for configuration documentation.
 
 BluetoothInspector.run
-
-# My personal configuration:
-#
-# BluetoothInspector.run do
-#
-#   bar_format ":battery%"
-#
-#   devices.find_all(&:no_battery?).each { |device| device.bar_item = false }
-#   devices.find_all { |device| device.battery? && device.battery < 20 }.each { |device| device.color = "red" }
-#
-#   device("RyBoard") do
-#     color     "#008BF1"
-#     shortname "K"
-#   end
-#
-#   device("RyMouse") do
-#     color     "#92D3FF"
-#     shortname "M"
-#   end
-#
-# end
