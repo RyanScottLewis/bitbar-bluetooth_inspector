@@ -3,6 +3,10 @@
 A [Bitbar][bitbar] plugin showing bluetooth information for all connected bluetooth devices using
 the `system_profiler` binary.
 
+## Screenshot
+
+![Screenshot]()
+
 ## Usage
 
 Compiled plugin is in `build/` directory.
