@@ -1,3 +1,5 @@
+require 'open3'
+
 module BluetoothInspector
 
   # The plugin controller.
@@ -43,9 +45,9 @@ module BluetoothInspector
     protected
 
     def collect_devices
-      command_output = `system_profiler SPBluetoothDataType`
+      stdout_str, stderr_str, status = Open3.capture3("system_profiler SPBluetoothDataType")
 
-      @devices = Parser.parse(command_output)
+      @devices = Parser.parse(stdout_str)
     end
 
     def setup_formatter
