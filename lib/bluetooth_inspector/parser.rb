@@ -26,8 +26,12 @@ module BluetoothInspector
 
       data["Bluetooth"]["Devices (Paired, Configured, etc.)"].collect do |name, attributes|
         Device.new(
-          name: name,
-          battery: attributes["Battery Level"]
+          name:       name,
+          battery:    attributes["Battery Level"],
+          major_type: attributes["Major Type"],
+          minor_type: attributes["Minor Type"],
+          paired:     attributes["Paired"],
+          connected:  attributes["Connected"],
         )
       end
     end

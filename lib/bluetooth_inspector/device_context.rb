@@ -21,6 +21,38 @@ module BluetoothInspector
       get_or_set_attribute(__method__, arguments)
     end
 
+    # Get/set the major type of the device.
+    #
+    # @param [String]
+    # @return [String]
+    def major_type(*arguments)
+      get_or_set_attribute(__method__, arguments)
+    end
+
+    # Get/set the minor type of the device.
+    #
+    # @param [String]
+    # @return [String]
+    def minor_type(*arguments)
+      get_or_set_attribute(__method__, arguments)
+    end
+
+    # Get/set whether the device is paired.
+    #
+    # @param [String]
+    # @return [String]
+    def paired?(*arguments)
+      get_or_set_attribute(__method__, arguments)
+    end
+
+    # Get/set whether the device is connected.
+    #
+    # @param [String]
+    # @return [String]
+    def connected?(*arguments)
+      get_or_set_attribute(__method__, arguments)
+    end
+
     # Get/set the shortname of the device.
     #
     # @return [nil, String]

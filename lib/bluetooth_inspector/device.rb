@@ -24,6 +24,76 @@ module BluetoothInspector
       @name = value.to_s
     end
 
+    # Get the major type of the device.
+    #
+    # @return [String]
+    attr_reader :major_type
+
+    # Set the major_type of the device.
+    #
+    # @param [#to_s] value
+    # @return [String]
+    def major_type=(value)
+      @major_type = value.to_s
+    end
+
+    # Get the minor type of the device.
+    #
+    # @return [String]
+    attr_reader :minor_type
+
+    # Set the minor_type of the device.
+    #
+    # @param [#to_s] value
+    # @return [String]
+    def minor_type=(value)
+      @minor_type = value.to_s
+    end
+
+    # Get whether the device is paired.
+    #
+    # @return [Boolean]
+    def paired?
+      @paired
+    end
+
+    # Get whether the device is not paired.
+    #
+    # @return [Boolean]
+    def unpaired?
+      !@paired
+    end
+
+    # set whether the device is paired.
+    #
+    # @param [Boolean] value
+    # @return [Boolean]
+    def paired=(value)
+      @paired = !!value
+    end
+
+    # Get whether the device is connected.
+    #
+    # @return [Boolean]
+    def connected?
+      @connected
+    end
+
+    # Get whether the device is not connected.
+    #
+    # @return [Boolean]
+    def disconnected?
+      !@connected
+    end
+
+    # set whether the device is connected.
+    #
+    # @param [Boolean] value
+    # @return [Boolean]
+    def connected=(value)
+      @connected = !!value
+    end
+
     # Get the shortname of the device.
     #
     # @return [nil, String]
