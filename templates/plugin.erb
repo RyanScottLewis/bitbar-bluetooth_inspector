@@ -22,4 +22,18 @@
 
 # See https://github.com/RyanScottLewis/bitbar-bluetooth_inspector for configuration documentation.
 
-BluetoothInspector.run
+BluetoothInspector.run do
+  devices.delete_if(&:no_battery?)
+  devices.delete_if(&:disconnected?)
+
+  # Color all low battery level devices red:
+  devices.find_all { |device| device.battery < 20 }.each { |device| device.color = "red" }
+
+  # Add device emojis to each shortname
+  devices.each do |device|
+    device.shortname = case device.minor_type
+      when 'Mouse'    then '🖱'
+      when 'Keyboard' then '⌨️'
+    end
+  end
+end
